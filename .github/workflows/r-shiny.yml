@@ -12,6 +12,9 @@ env:
   SHINY_SETUP: r-shiny
   TAG: latest
 
+permissions:
+  packages: write
+
 jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
