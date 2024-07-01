@@ -1,4 +1,4 @@
-## Faithful app: R
+# Faithful app: R
 
 Run the app interactively:
 
@@ -30,7 +30,7 @@ cd r-shiny
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
 # Specify tag
-export TAG=faithful/r-base:v1
+export TAG=faithful/r-shiny:v1
 
 # Build image
 docker build -t $TAG .
