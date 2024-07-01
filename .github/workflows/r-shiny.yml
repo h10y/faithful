@@ -1,9 +1,5 @@
 name: Build and Push Docker Image for faithful/r-shiny
 
-env:
-  SHINY_SETUP: r-shiny
-  TAG: latest
-
 on:
   push:
     branches: [ "main" ]
@@ -11,6 +7,10 @@ on:
   pull_request:
     branches: [ "main" ]
     paths: [ "r-shiny/**"]
+
+env:
+  SHINY_SETUP: r-shiny
+  TAG: latest
 
 jobs:
   build-and-push-image:
@@ -40,8 +40,8 @@ jobs:
       - name: 'Build and push'
         uses: docker/build-push-action@v6
         with:
-          context: ./${SHINY_SETUP}
-          file: ./${SHINY_SETUP}/Dockerfile
+          context: ./${{ env.SHINY_SETUP }}
+          file: ./${{ env.SHINY_SETUP }}/Dockerfile
           push: true
-          tags: ghcr.io/${{ github.repository }}/${SHINY_SETUP}:${TAG}
+          tags: ghcr.io/${{ github.repository }}/${{ env.SHINY_SETUP }}:${{ env.TAG }}
           labels: ${{ steps.meta.outputs.labels }}
