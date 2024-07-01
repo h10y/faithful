@@ -1,6 +1,6 @@
 FROM python:3.9
 
-RUN addgroup --system app && adduser --system --ingroup app app
+RUN groupadd app && useradd -g app app
 WORKDIR /home/app
 
 COPY app/requirements.txt .

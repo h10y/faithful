@@ -1,12 +1,7 @@
-FROM rocker/r2u:22.04
-
-# FROM rocker/r2u:24.04
-# RUN apt update && apt install -y --no-install-recommends \
-#     adduser \
-#     && rm -rf /var/lib/apt/lists/*
+FROM rocker/r2u:24.04
+RUN groupadd app && useradd -g app app
 
 RUN R -q -e "install.packages('shiny')"
-RUN addgroup --system app && adduser --system --ingroup app app
 WORKDIR /home/app
 COPY app .
 RUN chown app:app -R /home/app
