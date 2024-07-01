@@ -9,7 +9,7 @@ cd r-shiny/app
 # Install dependencies
 R -q -e "install.packages('deps');deps::install(ask=FALSE)"
 
-# Run the app, listen on port 8080
+# Run the app, visit http://localhost:8080
 R -q -e "shiny::runApp(port=8080)"
 ```
 
