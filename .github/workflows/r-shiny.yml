@@ -30,7 +30,7 @@ jobs:
           labels: |
             maintainer=Peter Solymos
             org.opencontainers.image.title=Faithful
-            org.opencontainers.image.description=Old Faithful Shiny app version ${SHINY_SETUP}
+            org.opencontainers.image.description=Old Faithful Shiny app
             org.opencontainers.image.vendor=Hosting Shiny Book Project
 
       - name: 'Login to GitHub Container Registry'
