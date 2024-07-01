@@ -1,4 +1,4 @@
-## Faithful app: Python
+# Faithful app: Python
 
 Run the app interactively:
 
