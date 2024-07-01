@@ -12,12 +12,14 @@ RUN pip install --no-cache-dir --upgrade -r requirements.txt
 COPY app .
 
 # Run app on port 8080
-# RUN mkdir .config
-# ENV MPLCONFIGDIR=/home/app/.config
 RUN chown app:app -R /home/app
 
 ## Issue: if I set user to 'user' I get various errors...
-# USER app
+USER app
+
+RUN mkdir .config
+ENV MPLCONFIGDIR=/home/app/.config
+ENV HOME=/home/app
 
 EXPOSE 3838
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "3838"]
