@@ -30,7 +30,7 @@ cd r-shiny
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
 # Specify tag
-export TAG=faithful/r-shiny:v1
+export TAG=faithful/r-shiny:main
 
 # Build image
 docker build -t $TAG .
