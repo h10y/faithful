@@ -10,7 +10,6 @@ on:
 
 env:
   SHINY_SETUP: r-shiny
-  TAG: latest
 
 permissions:
   packages: write
@@ -46,5 +45,7 @@ jobs:
           context: ./${{ env.SHINY_SETUP }}
           file: ./${{ env.SHINY_SETUP }}/Dockerfile
           push: true
-          tags: ghcr.io/${{ github.repository }}/${{ env.SHINY_SETUP }}:${{ env.TAG }}
+          tags: |
+            ghcr.io/${{ github.repository }}/${{ env.SHINY_SETUP }}:${{ github.ref_name }}
+            ghcr.io/${{ github.repository }}/${{ env.SHINY_SETUP }}:latest
           labels: ${{ steps.meta.outputs.labels }}
