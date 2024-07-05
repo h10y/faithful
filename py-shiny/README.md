@@ -17,7 +17,7 @@ Pull and run Docker image:
 
 ```bash
 docker pull ghcr.io/h10y/faithful/py-shiny:latest
-docker run --rm -p 8080:3838 ghcr.io/h10y/faithful/py-shiny:latest
+docker run -p 8080:3838 ghcr.io/h10y/faithful/py-shiny:latest
 ```
 
 Containerized version:
