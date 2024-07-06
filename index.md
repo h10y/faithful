@@ -7,4 +7,4 @@ title: Old Faithful Shiny App
 - [Quarto with Python Shinylive](./quarto-py-shinylive/)
 - [Quarto with R Shinylive](./quarto-r-shinylive/)
 
-See source at <https://github.com/h10y/lbtest>.
+See source at <https://github.com/h10y/faithful>.
