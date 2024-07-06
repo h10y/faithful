@@ -1,0 +1,45 @@
+---
+title: "Old Faithful"
+execute:
+  echo: false
+format: html
+server: shiny
+---
+
+This is a dynamic document with:
+
+- Quarto, and
+- Runtime: `shiny` for Python.
+
+```{python}
+import seaborn as sns
+import matplotlib.pyplot as plt
+from shiny import App, render, ui
+
+faithful = sns.load_dataset("geyser")
+x = faithful.waiting
+```
+
+```{python}
+@render.plot(alt="Histogram of waiting times")
+def histogram():
+    plt.hist(
+        x, 
+        bins = input.n(), 
+        density=False, 
+        color="#BB74DB",
+        edgecolor="white")
+    plt.title("Histogram of waiting times")
+    plt.xlabel("Waiting time to next eruption [mins]")
+    plt.ylabel("Frequency")
+```
+
+```{python}
+ui.input_slider(
+        id="n", 
+        label="Number of bins:", 
+        min=1, 
+        max=50, 
+        value=25,
+        ticks=True)
+```

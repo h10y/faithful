@@ -1,0 +1,24 @@
+---
+title: "Old Faithful"
+execute:
+  echo: false
+format: html
+server: shiny
+---
+
+This is a dynamic document with:
+
+- Quarto, and
+- Runtime: `shiny` for R.
+
+```{r}
+plotOutput("histogram")
+sliderInput(
+  inputId = "n",
+  label = "Number of bins:",
+  min = 1,
+  max = 50,
+  value = 25,
+  ticks = TRUE
+)
+```

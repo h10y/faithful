@@ -1,0 +1,4 @@
+shiny>=0.10.2
+matplotlib
+seaborn
+jupyter
