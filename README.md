@@ -2,120 +2,56 @@
 
 Shiny app displaying the histogram of the Old Faithful geyser waiting times.
 
-- [Hello Shiny App](#hello-shiny-app)
-  - [R](#r)
-  - [Python](#python)
-  - [Shiny in an R package](#shiny-in-an-r-package)
-    - [R package without a framework](#r-package-without-a-framework)
-    - [Golem](#golem)
-    - [Leprechaun](#leprechaun)
-  - [R Shiny as a Rhino app](#r-shiny-as-a-rhino-app)
-  - [Shinylive](#shinylive)
-    - [Python Shinylive](#python-shinylive)
-    - [R Shinylive](#r-shinylive)
-  - [R Markdown](#r-markdown)
-    - [R Markdown with runtime `shiny`](#r-markdown-with-runtime-shiny)
-    - [Prerendered R Markdown with runtime `shinyrmd`](#prerendered-r-markdown-with-runtime-shinyrmd)
-  - [Quarto](#quarto)
-    - [Quarto with R](#quarto-with-r)
-    - [Quarto with Python](#quarto-with-python)
-    - [Quarto with Shinylive (Python)](#quarto-with-shinylive-python)
-    - [Quarto with Shinylive (R)](#quarto-with-shinylive-r)
-  - [Serving Shinylive on GitHub Pages](#serving-shinylive-on-github-pages)
-
-After running the commands, visit `http://127.0.0.1:8080`. Cancel with Ctrl+C.
-
-## R
-
-See the [`r-shiny`](./r-shiny/) folder.
-
-## Python
-
-See the [`py-shiny`](./py-shiny/) folder.
-
-## Shiny in an R package
-
-### R package without a framework
-
-See the [`r-package`](./r-package/) folder.
-
-### Golem
-
-See the [`r-golem`](./r-golem/) folder.
-
-### Leprechaun
-
-See the [`r-leprechaun`](./r-leprechaun/) folder.
-
-## R Shiny as a Rhino app
-
-See the [`r-rhino`](./r-rhino/) folder.
-
-## Shinylive
-
-### Python Shinylive
-
-Create Python Shinylive version following <https://github.com/posit-dev/py-shinylive>:
-
-```bash
-# Export static files
-shinylive export py-shiny/app py-shinylive
-
-# Serve contents, visit http://localhost:8080
-python3 -m http.server --directory py-shinylive 8080
-```
-
-### R Shinylive
-
-Create R Shinylive version following <https://github.com/posit-dev/r-shinylive/>:
-
-```bash
-# Export static files
-R -q -e "shinylive::export('r-shiny/app', 'r-shinylive')"
-
-# Serve contents, visit http://localhost:8080
-R -q -e "httpuv::runStaticServer('r-shinylive', port=8080)"
-```
-
-## R Markdown
-
-### R Markdown with runtime `shiny`
-
-See the [`rmd-shiny`](./rmd-shiny/) folder.
-
-### Prerendered R Markdown with runtime `shinyrmd`
-
-See the [`rmd-prerendered`](./rmd-prerendered/) folder.
-
-## Quarto
-
-### Quarto with R
-
-See the [`quarto-r-shiny`](./quarto-r-shiny/) folder for a single file,
-and [`quarto-r-shiny-multifile`](./quarto-r-shiny-multifile/) folder
-for multiple-file based versions.
-
-### Quarto with Python
-
-See the [`quarto-py-shiny`](./quarto-py-shiny/) folder.
-
-### Quarto with Shinylive (Python)
-
-```bash
-cd quarto-py-shinylive
-quarto add quarto-ext/shinylive --no-prompt
-quarto render index.qmd --output-dir app
-quarto preview index.qmd --port 8080 --no-watch-inputs --no-browser
-```
-
-### Quarto with Shinylive (R)
-
-```bash
-cd quarto-r-shinylive
-quarto add quarto-ext/shinylive --no-prompt
-quarto render index.qmd --output-dir app
-quarto preview index.qmd --port 8080 --no-watch-inputs --no-browser
-```
+- R:
+  - [`r-shiny`](./r-shiny/)
+  - Docker image [`ghcr.io/h10y/faithful/r-shiny`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fr-shiny)
+- Python:
+  - [`py-shiny`](./py-shiny/)
+  - Docker image [`ghcr.io/h10y/faithful/py-shiny`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fpy-shiny)
+- Shiny in an R package:
+  - R package without a framework:
+    - [`r-package`](./r-package/)
+    - Docker image [`ghcr.io/h10y/faithful/r-package`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fr-package)
+  - Golem:
+    [`r-golem`](./r-golem/)
+    - Docker image [`ghcr.io/h10y/faithful/r-golem`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fr-golem)
+  - Leprechaun:
+    - [`r-leprechaun`](./r-leprechaun/)
+    - Docker image [`ghcr.io/h10y/faithful/r-leprechaun`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fr-leprechaun)
+- R Shiny as a Rhino app:
+  - [`r-rhino`](./r-rhino/)
+  - Docker image [`ghcr.io/h10y/faithful/r-rhino`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fr-rhino)
+- Shinylive:
+  - Python Shinylive
+    - [`py-shinylive`](./py-shinylive/)
+    - Docker image [`ghcr.io/h10y/faithful/py-shinylive`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fpy-shinylive)
+  - R Shinylive:
+    - [`r-shinylive`](./r-shinylive/)
+    - Docker image [`ghcr.io/h10y/faithful/r-shinylive`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fr-shinylive)
+- R Markdown
+  - R Markdown with runtime `shiny`:
+    - [`rmd-shiny`](./rmd-shiny/)
+    - Docker image [`ghcr.io/h10y/faithful/rmd-shiny`](https://github.com/h10y/faithful/pkgs/container/faithful%2Frmd-shiny)
+  - Prerendered R Markdown with runtime `shinyrmd`:
+    - [`rmd-prerendered`](./rmd-prerendered/)
+    - Docker image [`ghcr.io/h10y/faithful/rmd-prerendered`](https://github.com/h10y/faithful/pkgs/container/faithful%2Frmd-prerendered)
+- Quarto:
+  - Quarto with R:
+    - Single file:
+      - [`quarto-r-shiny`](./quarto-r-shiny/)
+      - Docker image [`ghcr.io/h10y/faithful/quarto-r-shiny`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fquarto-r-shiny)
+    - Multiple-file:
+      - [`quarto-r-shiny-multifile`](./quarto-r-shiny-multifile/)
+      - Docker image [`ghcr.io/h10y/faithful/quarto-r-shiny-multifile`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fquarto-r-shiny-multifile)
+  - Quarto with Python:
+    - [`quarto-py-shiny`](./quarto-py-shiny/)
+    - Docker image [`ghcr.io/h10y/faithful/quarto-py-shiny`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fquarto-py-shiny)
+  - Quarto with Shinylive (Python):
+    - [`quarto-py-shinylive`](./quarto-py-shinylive/)
+    - Docker image [`ghcr.io/h10y/faithful/quarto-py-shinylive`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fquarto-py-shinylive)
+  - Quarto with Shinylive (R):
+    - [`quarto-r-shinylive`](./quarto-r-shinylive/)
+    - Docker image [`ghcr.io/h10y/faithful/r-shinylive`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fquarto-r-shinylive)
 
 ## Serving Shinylive on GitHub Pages
 
@@ -127,10 +63,10 @@ rm -rf docs/py-shinylive docs/r-shinylive
 rm -rf docs/quarto-py-shinylive docs/quarto-r-shinylive
 
 # Copy files
-cp -r r-shinylive docs/ && cp -r py-shinylive docs/
+cp -r r-shinylive/app docs/
+cp -r py-shinylive/app docs/
 cp -r quarto-r-shinylive/app docs/quarto-r-shinylive
 cp -r quarto-py-shinylive/app docs/quarto-py-shinylive
-
 
 # Render HTML from markdown
 pandoc -s -f markdown -t html5 -o "docs/index.html" "index.md"
