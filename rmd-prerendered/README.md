@@ -1,6 +1,6 @@
 ## Rmarkdown: runtime shinyrmd
 
-Runtime `shinyrmd` (`shiny_prerendered`)
+Runtime `shinyrmd` (same as `shiny_prerendered`)
 
 ```bash
 cd rmd-prerendered/app
