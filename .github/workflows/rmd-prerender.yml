@@ -1,15 +1,15 @@
-name: Build and Push Docker Image for faithful/rmd-prerender
+name: Build and Push Docker Image for faithful/rmd-prerendered
 
 on:
   push:
     branches: [ "main" ]
-    paths: [ "rmd-prerender/**"]
+    paths: [ "rmd-prerendered/**"]
   pull_request:
     branches: [ "main" ]
-    paths: [ "rmd-prerender/**"]
+    paths: [ "rmd-prerendered/**"]
 
 env:
-  SHINY_SETUP: rmd-prerender
+  SHINY_SETUP: rmd-prerendered
 
 permissions:
   packages: write
