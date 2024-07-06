@@ -15,6 +15,7 @@ Shiny app displaying the histogram of the Old Faithful geyser waiting times.
   - [Rhino](#rhino)
   - [Golem](#golem)
   - [Leprechaun](#leprechaun)
+  - [Serving Shinylive on GitHub Pages](#serving-shinylive-on-github-pages)
 
 After running the commands, visit `http://127.0.0.1:8080`. Cancel with Ctrl+C.
 
@@ -175,3 +176,20 @@ R CMD install faithfulLeprechaun_0.0.1.tar.gz
 
 R -q -e 'faithfulLeprechaun::run(options=list(port=8080))'
 ```
+
+## Serving Shinylive on GitHub Pages
+
+Serving Shinylive apps on GitHub Pages (from `docs` folder on the `main` branch).
+
+```bash
+# Cleanup
+rm -rf docs/py-shinylive docs/r-shinylive
+
+# Copy files
+cp -r r-shinylive docs/ && cp -r py-shinylive docs/
+
+# Render HTML from markdown
+pandoc -s -f markdown -t html5 -o "docs/index.html" "index.md"
+```
+
+See deployed Shinylive results at <https://h10y.github.io/faithful/>.
