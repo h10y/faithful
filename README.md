@@ -5,176 +5,118 @@ Shiny app displaying the histogram of the Old Faithful geyser waiting times.
 - [Hello Shiny App](#hello-shiny-app)
   - [R](#r)
   - [Python](#python)
-  - [Shinylive with R \& Python](#shinylive-with-r--python)
-  - [Rmarkdown](#rmarkdown)
-  - [Quarto with R](#quarto-with-r)
-  - [Quarto with Python](#quarto-with-python)
-  - [Quarto with Shinylive (Python)](#quarto-with-shinylive-python)
-  - [Quarto with Shinylive (R)](#quarto-with-shinylive-r)
-  - [R package](#r-package)
-  - [Rhino](#rhino)
-  - [Golem](#golem)
-  - [Leprechaun](#leprechaun)
+  - [Shiny in an R package](#shiny-in-an-r-package)
+    - [R package without a framework](#r-package-without-a-framework)
+    - [Golem](#golem)
+    - [Leprechaun](#leprechaun)
+  - [R Shiny as a Rhino app](#r-shiny-as-a-rhino-app)
+  - [Shinylive](#shinylive)
+    - [Python Shinylive](#python-shinylive)
+    - [R Shinylive](#r-shinylive)
+  - [R Markdown](#r-markdown)
+    - [R Markdown with runtime `shiny`](#r-markdown-with-runtime-shiny)
+    - [Prerendered R Markdown with runtime `shinyrmd`](#prerendered-r-markdown-with-runtime-shinyrmd)
+  - [Quarto](#quarto)
+    - [Quarto with R](#quarto-with-r)
+    - [Quarto with Python](#quarto-with-python)
+    - [Quarto with Shinylive (Python)](#quarto-with-shinylive-python)
+    - [Quarto with Shinylive (R)](#quarto-with-shinylive-r)
   - [Serving Shinylive on GitHub Pages](#serving-shinylive-on-github-pages)
 
 After running the commands, visit `http://127.0.0.1:8080`. Cancel with Ctrl+C.
 
 ## R
 
-```bash
-# change directory
-cd r-shiny
-
-# install dependencies
-R -q -e 'install.packages("deps");deps::install(ask=FALSE)'
-
-# run the app, listen on port 8080
-R -q -e 'shiny::runApp(port=8080)'
-```
+See the [`r-shiny`](./r-shiny/) folder.
 
 ## Python
 
+See the [`py-shiny`](./py-shiny/) folder.
+
+## Shiny in an R package
+
+### R package without a framework
+
+See the [`r-package`](./r-package/) folder.
+
+### Golem
+
+See the [`r-golem`](./r-golem/) folder.
+
+### Leprechaun
+
+See the [`r-leprechaun`](./r-leprechaun/) folder.
+
+## R Shiny as a Rhino app
+
+See the [`r-rhino`](./r-rhino/) folder.
+
+## Shinylive
+
+### Python Shinylive
+
+Create Python Shinylive version following <https://github.com/posit-dev/py-shinylive>:
+
 ```bash
-# change directory
-cd py-shiny
+# Export static files
+shinylive export py-shiny/app py-shinylive
 
-# install dependencies
-pip install -r requirements.txt
-
-# run the app, listen on port 8080
-shiny run --reload --port 8080
-```
-
-## Shinylive with R & Python
-
-Create Python shinylive version following <https://github.com/posit-dev/py-shinylive>:
-
-```bash
-shinylive export py-shiny py-shinylive
+# Serve contents, visit http://localhost:8080
 python3 -m http.server --directory py-shinylive 8080
 ```
 
-Create R shinylive version following <https://posit-dev.github.io/r-shinylive/>:
+### R Shinylive
+
+Create R Shinylive version following <https://github.com/posit-dev/r-shinylive/>:
 
 ```bash
-R -q -e 'shinylive::export("r-shiny", "r-shinylive")'
-R -q -e 'httpuv::runStaticServer("r-shinylive", port=8080)'
+# Export static files
+R -q -e "shinylive::export('r-shiny/app', 'r-shinylive')"
+
+# Serve contents, visit http://localhost:8080
+R -q -e "httpuv::runStaticServer('r-shinylive', port=8080)"
 ```
 
-## Rmarkdown
+## R Markdown
 
-Runtime `shiny`
+### R Markdown with runtime `shiny`
 
-```bash
-cd rmd-shiny
-R -q -e 'rmarkdown::run(shiny_args = list(port = 8080))'
-```
+See the [`rmd-shiny`](./rmd-shiny/) folder.
 
-Runtime `shinyrmd` (`shiny_prerendered`)
+### Prerendered R Markdown with runtime `shinyrmd`
 
-```bash
-cd rmd-prerendered
-# prerender
-R -e "rmarkdown::render('index.Rmd')"
-# serve
-RMARKDOWN_RUN_PRERENDER=0 R -q -e 'rmarkdown::run(shiny_args = list(port = 8080))'
-# or
-R -q -e 'Sys.setenv(RMARKDOWN_RUN_PRERENDER=0);rmarkdown::run(shiny_args = list(port = 8080))'
-```
+See the [`rmd-prerendered`](./rmd-prerendered/) folder.
 
-## Quarto with R
+## Quarto
 
-Server `shiny`
+### Quarto with R
 
-```bash
-cd quarto-r-shiny
-quarto serve index.qmd --port 8080
-```
+See the [`quarto-r-shiny`](./quarto-r-shiny/) folder for a single file,
+and [`quarto-r-shiny-multifile`](./quarto-r-shiny-multifile/) folder
+for multiple-file based versions.
 
-Server `shiny`, prerendered.
+### Quarto with Python
 
-```bash
-quarto render index.qmd
-quarto serve index.qmd --port 8080 --no-render
-```
+See the [`quarto-py-shiny`](./quarto-py-shiny/) folder.
 
-## Quarto with Python
-
-Server `shiny`
-
-```bash
-cd quarto-py-shiny
-quarto serve index.qmd --port 8080
-```
-
-Server `shiny`, prerendered.
-
-```bash
-quarto render index.qmd
-quarto serve index.qmd --port 8080 --no-render
-```
-
-## Quarto with Shinylive (Python)
+### Quarto with Shinylive (Python)
 
 Need to add an extension: `quarto add quarto-ext/shinylive`.
+
+FIXME: add how to render here
 
 ```bash
 quarto preview index.qmd --port 8080 --no-watch-inputs --no-browser
 ```
 
-## Quarto with Shinylive (R)
+### Quarto with Shinylive (R)
 
 Need to add an extension: `quarto add quarto-ext/shinylive`.
 
+FIXME: add how to render here
+
 ```bash
 quarto preview index.qmd --port 8080 --no-watch-inputs --no-browser
-```
-
-## R package
-
-```bash
-cd r-package
-
-R -q -e 'roxygen2::roxygenise("faithful")'
-R CMD build faithful
-R CMD check faithful_0.0.1.tar.gz
-R CMD install faithful_0.0.1.tar.gz
-
-R -q -e 'faithful::run_app(port=8080)'
-```
-
-## Rhino
-
-```bash
-R -q -e 'shiny::runApp("r-rhino", port=8080)'
-```
-
-## Golem
-
-```bash
-cd r-golem
-
-R -q -e 'roxygen2::roxygenise("faithfulGolem")'
-
-R CMD build faithfulGolem
-R CMD check faithfulGolem_0.0.1.tar.gz
-R CMD install faithfulGolem_0.0.1.tar.gz
-
-R -q -e 'faithfulGolem::run_app(options=list(port=8080))'
-```
-
-## Leprechaun
-
-```bash
-cd r-leprechaun
-
-R -q -e 'roxygen2::roxygenise("faithfulLeprechaun")'
-
-R CMD build faithfulLeprechaun
-R CMD check faithfulLeprechaun_0.0.1.tar.gz
-R CMD install faithfulLeprechaun_0.0.1.tar.gz
-
-R -q -e 'faithfulLeprechaun::run(options=list(port=8080))'
 ```
 
 ## Serving Shinylive on GitHub Pages
