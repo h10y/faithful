@@ -13,7 +13,7 @@ WORKDIR /home/app
 # Copy Shiny app files
 COPY app .
 
-# Set owher for the home folder
+# Set owner for the home folder
 RUN chown app:app -R /home/app
 
 # Set user to non-root

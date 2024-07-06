@@ -1,0 +1,11 @@
+Package: faithful
+Version: 0.0.1
+Title: Old Faithful Shiny App
+Author: Peter Solymos
+Maintainer: Peter Solymos <psolymos@gmail.com>
+Description: Old Faithful Shiny app.
+Imports: 
+    shiny
+License: MIT + file LICENSE
+Encoding: UTF-8
+RoxygenNote: 7.3.1

@@ -1,0 +1,13 @@
+Package: faithfulGolem
+Title: Old Faithful Shiny App
+Version: 0.0.1
+Author: Peter Solymos
+Maintainer: Peter Solymos <psolymos@gmail.com>
+Description: Old Faithful Shiny app.
+License: MIT + file LICENSE
+Imports: 
+    config (>= 0.3.2),
+    golem (>= 0.4.1),
+    shiny (>= 1.8.1.1)
+Encoding: UTF-8
+RoxygenNote: 7.3.1
