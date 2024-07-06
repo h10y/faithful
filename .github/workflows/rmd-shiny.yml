@@ -1,0 +1,58 @@
+name: Build and Push Docker Image for faithful/rmd-shiny
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: [ "rmd-shiny/**"]
+  pull_request:
+    branches: [ "main" ]
+    paths: [ "rmd-shiny/**"]
+
+env:
+  SHINY_SETUP: rmd-shiny
+
+permissions:
+  packages: write
+
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: 'Checkout GitHub Action'
+        uses: actions/checkout@v4
+
+      - name: 'Docker metadata'
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          labels: |
+            maintainer=Peter Solymos
+            org.opencontainers.image.title=Faithful
+            org.opencontainers.image.description=Old Faithful Shiny app
+            org.opencontainers.image.vendor=Hosting Shiny Book Project
+          images: |
+            ghcr.io/${{ github.repository }}/${{ env.SHINY_SETUP }}
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=ref,event=branch
+            type=ref,event=pr
+
+      - name: 'Login to GitHub Container Registry'
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
+
+      - name: 'Build and push'
+        uses: docker/build-push-action@v6
+        with:
+          context: ./${{ env.SHINY_SETUP }}
+          file: ./${{ env.SHINY_SETUP }}/Dockerfile
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
