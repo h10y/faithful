@@ -101,21 +101,19 @@ See the [`quarto-py-shiny`](./quarto-py-shiny/) folder.
 
 ### Quarto with Shinylive (Python)
 
-Need to add an extension: `quarto add quarto-ext/shinylive`.
-
-FIXME: add how to render here
-
 ```bash
+cd quarto-py-shinylive
+quarto add quarto-ext/shinylive --no-prompt
+quarto render index.qmd --output-dir app
 quarto preview index.qmd --port 8080 --no-watch-inputs --no-browser
 ```
 
 ### Quarto with Shinylive (R)
 
-Need to add an extension: `quarto add quarto-ext/shinylive`.
-
-FIXME: add how to render here
-
 ```bash
+cd quarto-r-shinylive
+quarto add quarto-ext/shinylive --no-prompt
+quarto render index.qmd --output-dir app
 quarto preview index.qmd --port 8080 --no-watch-inputs --no-browser
 ```
 
@@ -126,9 +124,13 @@ Serving Shinylive apps on GitHub Pages (from `docs` folder on the `main` branch)
 ```bash
 # Cleanup
 rm -rf docs/py-shinylive docs/r-shinylive
+rm -rf docs/quarto-py-shinylive docs/quarto-r-shinylive
 
 # Copy files
 cp -r r-shinylive docs/ && cp -r py-shinylive docs/
+cp -r quarto-r-shinylive/app docs/quarto-r-shinylive
+cp -r quarto-py-shinylive/app docs/quarto-py-shinylive
+
 
 # Render HTML from markdown
 pandoc -s -f markdown -t html5 -o "docs/index.html" "index.md"
