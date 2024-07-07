@@ -2,56 +2,40 @@
 
 Shiny app displaying the histogram of the Old Faithful geyser waiting times.
 
-- R:
-  - [`r-shiny`](./r-shiny/)
-  - Docker image [`ghcr.io/h10y/faithful/r-shiny`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fr-shiny)
-- Python:
-  - [`py-shiny`](./py-shiny/)
-  - Docker image [`ghcr.io/h10y/faithful/py-shiny`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fpy-shiny)
-- Shiny in an R package:
-  - R package without a framework:
-    - [`r-package`](./r-package/)
-    - Docker image [`ghcr.io/h10y/faithful/r-package`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fr-package)
-  - Golem:
-    [`r-golem`](./r-golem/)
-    - Docker image [`ghcr.io/h10y/faithful/r-golem`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fr-golem)
-  - Leprechaun:
-    - [`r-leprechaun`](./r-leprechaun/)
-    - Docker image [`ghcr.io/h10y/faithful/r-leprechaun`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fr-leprechaun)
-- R Shiny as a Rhino app:
-  - [`r-rhino`](./r-rhino/)
-  - Docker image [`ghcr.io/h10y/faithful/r-rhino`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fr-rhino)
-- Shinylive:
-  - Python Shinylive
-    - [`py-shinylive`](./py-shinylive/)
-    - Docker image [`ghcr.io/h10y/faithful/py-shinylive`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fpy-shinylive)
-  - R Shinylive:
-    - [`r-shinylive`](./r-shinylive/)
-    - Docker image [`ghcr.io/h10y/faithful/r-shinylive`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fr-shinylive)
-- R Markdown
-  - R Markdown with runtime `shiny`:
-    - [`rmd-shiny`](./rmd-shiny/)
-    - Docker image [`ghcr.io/h10y/faithful/rmd-shiny`](https://github.com/h10y/faithful/pkgs/container/faithful%2Frmd-shiny)
-  - Prerendered R Markdown with runtime `shinyrmd`:
-    - [`rmd-prerendered`](./rmd-prerendered/)
-    - Docker image [`ghcr.io/h10y/faithful/rmd-prerendered`](https://github.com/h10y/faithful/pkgs/container/faithful%2Frmd-prerendered)
-- Quarto:
-  - Quarto with R:
-    - Single file:
-      - [`quarto-r-shiny`](./quarto-r-shiny/)
-      - Docker image [`ghcr.io/h10y/faithful/quarto-r-shiny`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fquarto-r-shiny)
-    - Multiple-file:
-      - [`quarto-r-shiny-multifile`](./quarto-r-shiny-multifile/)
-      - Docker image [`ghcr.io/h10y/faithful/quarto-r-shiny-multifile`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fquarto-r-shiny-multifile)
-  - Quarto with Python:
-    - [`quarto-py-shiny`](./quarto-py-shiny/)
-    - Docker image [`ghcr.io/h10y/faithful/quarto-py-shiny`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fquarto-py-shiny)
-  - Quarto with Shinylive (Python):
-    - [`quarto-py-shinylive`](./quarto-py-shinylive/)
-    - Docker image [`ghcr.io/h10y/faithful/quarto-py-shinylive`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fquarto-py-shinylive)
-  - Quarto with Shinylive (R):
-    - [`quarto-r-shinylive`](./quarto-r-shinylive/)
-    - Docker image [`ghcr.io/h10y/faithful/r-shinylive`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fquarto-r-shinylive)
+![](example-faithful.png)
+
+| Flavour           | Link  | Image  |
+|-------------------|---|---|
+| R Shiny           | [`r-shiny`](./r-shiny/)  | [`ghcr.io/h10y/faithful/r-shiny`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fr-shiny)  |
+| Python Shiny      | [`py-shiny`](./py-shiny/)  | [`ghcr.io/h10y/faithful/py-shiny`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fpy-shiny)  |
+|  R Shiny as a Rhino app   |  [`r-rhino`](./r-rhino/)   |  [`ghcr.io/h10y/faithful/r-rhino`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fr-rhino)   |
+
+## Shiny in an R package
+
+| Flavour           | Link  | Image  |
+|-------------------|---|---|
+|  R package   |   [`r-package`](./r-package/)  |  [`ghcr.io/h10y/faithful/r-package`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fr-package)   |
+|  Golem   |  [`r-golem`](./r-golem/)   |  [`ghcr.io/h10y/faithful/r-golem`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fr-golem)   |
+|  Leprechaun   |  [`r-leprechaun`](./r-leprechaun/)   |  [`ghcr.io/h10y/faithful/r-leprechaun`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fr-leprechaun)   |
+
+## Dynamic documents
+
+| Flavour           | Link  | Image  |
+|-------------------|---|---|
+|  R Markdown with Shiny  |  [`rmd-shiny`](./rmd-shiny/)  |  [`ghcr.io/h10y/faithful/rmd-shiny`](https://github.com/h10y/faithful/pkgs/container/faithful%2Frmd-shiny)  |
+|  Prerendered R Markdown  |  [`rmd-prerendered`](./rmd-prerendered/)  |  [`ghcr.io/h10y/faithful/rmd-prerendered`](https://github.com/h10y/faithful/pkgs/container/faithful%2Frmd-prerendered)  |
+|  Quarto with R Shiny (single file)  |  [`quarto-r-shiny`](./quarto-r-shiny/)  |  [`ghcr.io/h10y/faithful/quarto-r-shiny`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fquarto-r-shiny)  |
+|  Quarto with R Shiny (multiple files)  |  [`quarto-r-shiny-multifile`](./quarto-r-shiny-multifile/)  |  [`ghcr.io/h10y/faithful/quarto-r-shiny-multifile`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fquarto-r-shiny-multifile)  |
+|  Quarto with Python Shiny  |  [`quarto-py-shiny`](./quarto-py-shiny/)  |  [`ghcr.io/h10y/faithful/quarto-py-shiny`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fquarto-py-shiny)  |
+
+## Shinylive
+
+| Flavour           | Link  | Image  |
+|-------------------|---|---|
+|  Python Shinylive  |  [`py-shinylive`](./py-shinylive/)  |  [`ghcr.io/h10y/faithful/py-shinylive`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fpy-shinylive)  |
+|  R Shinylive  |  [`r-shinylive`](./r-shinylive/)  |  [`ghcr.io/h10y/faithful/r-shinylive`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fr-shinylive)  |
+|  Quarto with Shinylive (Python)  |  [`quarto-py-shinylive`](./quarto-py-shinylive/)  |  [`ghcr.io/h10y/faithful/quarto-py-shinylive`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fquarto-py-shinylive)  |
+|  Quarto with Shinylive (R)  |  [`quarto-r-shinylive`](./quarto-r-shinylive/)  |  [`ghcr.io/h10y/faithful/r-shinylive`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fquarto-r-shinylive)  |
 
 ## Serving Shinylive on GitHub Pages
 
