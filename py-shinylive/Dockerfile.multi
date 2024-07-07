@@ -1,0 +1,17 @@
+FROM python:3.9 AS builder
+WORKDIR /root
+RUN pip install shinylive
+COPY py-shiny/app app
+RUN pip install --no-cache-dir --upgrade -r /root/app/requirements.txt
+RUN shinylive export app output
+
+FROM ghcr.io/openfaas/of-watchdog:0.10.1 AS watchdog
+
+FROM alpine:3.20
+RUN mkdir /app
+COPY --from=builder /root/output /app
+COPY --from=watchdog /fwatchdog .
+ENV mode="static"
+ENV static_path="/app"
+HEALTHCHECK --interval=3s CMD [ -e /tmp/.lock ] || exit 1
+CMD ["./fwatchdog"]

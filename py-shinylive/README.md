@@ -9,3 +9,49 @@ shinylive export py-shiny/app py-shinylive/app
 # Serve contents, visit http://localhost:8080
 python3 -m http.server --directory py-shinylive/app 8080
 ```
+
+Containerized version using locally rendered artifacts:
+
+- served with `http.server` (`:http`), this uses `ENTRYPOINT` to define the Python interpreter
+- served with Nginx (`:nginx`)
+- served with OpenFaaS Watchdog (`:of`)
+
+```bash
+# Change directory
+cd py-shinylive
+
+# If on MacOS X, set this
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
+# Specify tag
+export NAME=faithful/py-shinylive
+
+# Build image
+docker build -t ${NAME}:http -f Dockerfile.http .
+docker build -t ${NAME}:nginx -f Dockerfile.nginx .
+docker build -t ${NAME}:of -f Dockerfile.of .
+
+# Run image, visit http://localhost:8080
+docker run --rm -p 8080:8080 ${NAME}:http
+docker run --rm -p 8080:80 ${NAME}:nginx
+docker run --rm -p 8080:8080 ${NAME}:of-watchdog
+```
+
+Containerized version using multi-stage build to render in Docker:
+
+```bash
+# Stay in the root directory for wider build context
+# cd ..
+
+# If on MacOS X, set this
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
+# Specify tag
+export NAME=faithful/py-shinylive
+
+# Build image
+docker build -t ${NAME}:multi -f py-shinylive/Dockerfile.multi .
+
+# Run image, visit http://localhost:8080
+docker run --rm -p 8080:8080 ${NAME}:multi
+```
