@@ -30,12 +30,12 @@ Shiny app displaying the histogram of the Old Faithful geyser waiting times.
 
 ## Shinylive
 
-| Flavour           | Link  | Image  |
+| Flavour           | Link  | Deployment  |
 |-------------------|---|---|
-|  Python Shinylive  |  [`py-shinylive`](./py-shinylive/)  |  [`ghcr.io/h10y/faithful/py-shinylive`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fpy-shinylive)  |
-|  R Shinylive  |  [`r-shinylive`](./r-shinylive/)  |  [`ghcr.io/h10y/faithful/r-shinylive`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fr-shinylive)  |
-|  Quarto with Shinylive (Python)  |  [`quarto-py-shinylive`](./quarto-py-shinylive/)  |  [`ghcr.io/h10y/faithful/quarto-py-shinylive`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fquarto-py-shinylive)  |
-|  Quarto with Shinylive (R)  |  [`quarto-r-shinylive`](./quarto-r-shinylive/)  |  [`ghcr.io/h10y/faithful/r-shinylive`](https://github.com/h10y/faithful/pkgs/container/faithful%2Fquarto-r-shinylive)  |
+|  Python Shinylive  |  [`py-shinylive`](./py-shinylive/)  |  <https://h10y.github.io/faithful/py-shinylive>  |
+|  R Shinylive  |  [`r-shinylive`](./r-shinylive/)  |  <https://h10y.github.io/faithful/r-shinylive>  |
+|  Quarto with Shinylive (Python)  |  [`quarto-py-shinylive`](./quarto-py-shinylive/)  |  <https://h10y.github.io/faithful/quarto-py-shinylive>  |
+|  Quarto with Shinylive (R)  |  [`quarto-r-shinylive`](./quarto-r-shinylive/)  |  <https://h10y.github.io/faithful/quarto-r-shinylive>  |
 
 ## Serving Shinylive on GitHub Pages
 
