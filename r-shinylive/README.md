@@ -37,7 +37,7 @@ docker build -t ${NAME}:of -f Dockerfile.of .
 docker run --rm -p 8080:8080 ${NAME}:httpuv
 docker run --rm -p 8080:80 ${NAME}:nginx
 docker run --rm -p 8080:80 ${NAME}:httpd
-docker run --rm -p 8080:8080 ${NAME}:of-watchdog
+docker run --rm -p 8080:8080 ${NAME}:of
 ```
 
 Containerized version using multi-stage build to render in Docker:

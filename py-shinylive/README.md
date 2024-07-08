@@ -3,6 +3,9 @@
 Create Python Shinylive version following <https://github.com/posit-dev/py-shinylive>:
 
 ```bash
+# Install Shinylive
+pip install shinylive
+
 # Export static files
 shinylive export py-shiny/app py-shinylive/app
 
@@ -34,7 +37,7 @@ docker build -t ${NAME}:of -f Dockerfile.of .
 # Run image, visit http://localhost:8080
 docker run --rm -p 8080:8080 ${NAME}:http
 docker run --rm -p 8080:80 ${NAME}:nginx
-docker run --rm -p 8080:8080 ${NAME}:of-watchdog
+docker run --rm -p 8080:8080 ${NAME}:of
 ```
 
 Containerized version using multi-stage build to render in Docker:

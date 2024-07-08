@@ -1,0 +1,29 @@
+FROM python:3.9 AS builder
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    pandoc \
+    curl \
+    gdebi-core \
+    && rm -rf /var/lib/apt/lists/*
+RUN curl -LO https://quarto.org/download/latest/quarto-linux-amd64.deb
+RUN gdebi --non-interactive quarto-linux-amd64.deb
+RUN apt-get purge -y gdebi-core && apt-get autoremove -y
+RUN pip install shinylive
+
+WORKDIR /root/app
+COPY quarto-py-shinylive/index.qmd /root/app/index.qmd
+COPY quarto-py-shiny/app/requirements.txt /root/app/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+RUN quarto add quarto-ext/shinylive --no-prompt
+RUN quarto render /root/app/index.qmd --output-dir /root/output
+
+
+FROM ghcr.io/openfaas/of-watchdog:0.10.1 AS watchdog
+
+FROM alpine:3.20
+RUN mkdir /app
+COPY --from=builder /root/output /app
+COPY --from=watchdog /fwatchdog .
+ENV mode="static"
+ENV static_path="/app"
+HEALTHCHECK --interval=3s CMD [ -e /tmp/.lock ] || exit 1
+CMD ["./fwatchdog"]

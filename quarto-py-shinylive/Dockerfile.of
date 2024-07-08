@@ -1,0 +1,10 @@
+FROM ghcr.io/openfaas/of-watchdog:0.10.1 AS watchdog
+
+FROM alpine:3.20
+RUN mkdir /app
+COPY app /app
+COPY --from=watchdog /fwatchdog .
+ENV mode="static"
+ENV static_path="/app"
+HEALTHCHECK --interval=3s CMD [ -e /tmp/.lock ] || exit 1
+CMD ["./fwatchdog"]
