@@ -14,6 +14,7 @@ Containerized version using locally rendered artifacts:
 
 - served with `httpuv` (`:httpuv`)
 - served with Nginx (`:nginx`)
+- served with Apache (`:httpd`)
 - served with OpenFaaS Watchdog (`:of`)
 
 ```bash
@@ -29,11 +30,13 @@ export NAME=faithful/r-shinylive
 # Build image
 docker build -t ${NAME}:httpuv -f Dockerfile.httpuv .
 docker build -t ${NAME}:nginx -f Dockerfile.nginx .
+docker build -t ${NAME}:httpd -f Dockerfile.httpd .
 docker build -t ${NAME}:of -f Dockerfile.of .
 
 # Run image, visit http://localhost:8080
 docker run --rm -p 8080:8080 ${NAME}:httpuv
 docker run --rm -p 8080:80 ${NAME}:nginx
+docker run --rm -p 8080:80 ${NAME}:httpd
 docker run --rm -p 8080:8080 ${NAME}:of-watchdog
 ```
 
