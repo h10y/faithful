@@ -47,8 +47,8 @@ rm -rf docs/py-shinylive docs/r-shinylive
 rm -rf docs/quarto-py-shinylive docs/quarto-r-shinylive
 
 # Copy files
-cp -r r-shinylive/app docs/
-cp -r py-shinylive/app docs/
+cp -r r-shinylive/app docs/r-shinylive
+cp -r py-shinylive/app docs/py-shinylive
 cp -r quarto-r-shinylive/app docs/quarto-r-shinylive
 cp -r quarto-py-shinylive/app docs/quarto-py-shinylive
 
