@@ -96,7 +96,6 @@ app_ui = ui.page_fixed(
 )
 
 def server(input, output, session):
-    @output
     @render.plot(alt="Histogram of waiting times")
     def histogram():
         plt.hist(
