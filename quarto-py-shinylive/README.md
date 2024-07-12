@@ -23,7 +23,7 @@ export DOCKER_DEFAULT_PLATFORM=linux/amd64
 export NAME=faithful/quarto-py-shinylive
 
 # Build image
-docker build -t ${NAME}:of -f Dockerfile.of .
+docker build -t ${NAME}:of -f Dockerfile .
 
 # Run image, visit http://localhost:8080
 docker run --rm -p 8080:8080 ${NAME}:of
