@@ -10,8 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN curl -LO https://quarto.org/download/latest/quarto-linux-amd64.deb
 RUN gdebi --non-interactive quarto-linux-amd64.deb
 RUN apt-get purge -y gdebi-core && apt-get autoremove -y
-RUN install.r quarto shiny
-RUN installGithub.r analythium/deps
+RUN install.r quarto shiny deps
 
 # Add non-root user and group
 RUN groupadd app && useradd -g app app
