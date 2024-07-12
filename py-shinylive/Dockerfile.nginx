@@ -1,3 +1,0 @@
-FROM nginx:alpine3.19-slim
-COPY app /usr/share/nginx/html
-CMD ["nginx", "-g", "daemon off;"]

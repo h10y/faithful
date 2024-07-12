@@ -28,15 +28,9 @@ export DOCKER_DEFAULT_PLATFORM=linux/amd64
 export NAME=faithful/r-shinylive
 
 # Build image
-docker build -t ${NAME}:httpuv -f Dockerfile.httpuv .
-docker build -t ${NAME}:nginx -f Dockerfile.nginx .
-docker build -t ${NAME}:httpd -f Dockerfile.httpd .
-docker build -t ${NAME}:of -f Dockerfile.of .
+docker build -t ${NAME}:of -f Dockerfile .
 
 # Run image, visit http://localhost:8080
-docker run --rm -p 8080:8080 ${NAME}:httpuv
-docker run --rm -p 8080:80 ${NAME}:nginx
-docker run --rm -p 8080:80 ${NAME}:httpd
 docker run --rm -p 8080:8080 ${NAME}:of
 ```
 

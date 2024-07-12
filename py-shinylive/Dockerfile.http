@@ -1,4 +1,0 @@
-FROM python:3.9
-COPY app app
-ENTRYPOINT ["python3", "-m"]
-CMD ["http.server", "--directory", "app", "--bind", "0.0.0.0", "8080"]
