@@ -38,3 +38,17 @@ docker build -t $TAG .
 # Run image, visit http://localhost:8080
 docker run --rm -p 8080:3838 $TAG
 ```
+
+Deploy to shinyapps.io:
+
+```bash
+rsconnect add \
+    --account h10y \
+    --name h10y \
+    --token A1B2...Y8Z9 \
+    --secret abc123...xyz789+
+
+rsconnect deploy shiny ./py-shiny/app \
+    --name h10y \
+    --title faithful-py
+```
