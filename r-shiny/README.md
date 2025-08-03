@@ -59,3 +59,19 @@ docker build -t $TAG -f Dockerfile.minimal .
 # Run image, visit http://localhost:8080
 docker run --rm -p 8080:3838 $TAG
 ```
+
+Deploy to shinyapps.io:
+
+```R
+install.packages("rsconnect")
+
+rsconnect::setAccountInfo(
+    name = "h10y",
+    token = "A1B2...Y8Z9",
+    secret = "abc123...xyz789")
+
+rsconnect::deployApp(
+    appDir = "./r-shiny/app", 
+    account = "h10y",
+    appName = "faithful-r")
+```
