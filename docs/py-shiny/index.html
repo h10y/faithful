@@ -69,9 +69,8 @@
   <p>
     This page loads the Shiny app as part of an iframe.
     The original app is deployed to
-    <a href="https://h10y.shinyapps.io/faithful-py/" target="_blank">
-      https://h10y.shinyapps.io/faithful-py/
-    </a>.
+    <a href="https://h10y.shinyapps.io/faithful-py/" target="_blank"
+    >https://h10y.shinyapps.io/faithful-py/</a>.
     Note: apps need to run securely over HTTPS for the browser to load it
     through an iframe.
   </p>
@@ -82,7 +81,8 @@
     <iframe
       title="Faithful Python Shiny App"
       onload="document.getElementById('loader').style.display='none';"
-      style="width:80%; height:60%; border:1px;"
+      style="width:80%; height:500px;"
+      frameborder="1"
       src="https://h10y.shinyapps.io/faithful-py/"
     >
       Your browser doesn't support iframes
