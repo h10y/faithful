@@ -75,3 +75,7 @@ rsconnect::deployApp(
     account = "h10y",
     appName = "faithful-r")
 ```
+
+The `ploomber-*` directories contain the files required to deploy
+the R Shiny version of the `faithful` example to [Ploomber](https://ploomber.io/)
+using R Shiny or as a Docker app.
