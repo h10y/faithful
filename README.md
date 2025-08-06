@@ -56,4 +56,4 @@ cp -r quarto-py-shinylive/app docs/quarto-py-shinylive
 pandoc -s -f markdown -t html5 -o "docs/index.html" "index.md"
 ```
 
-See deployed Shinylive results at <https://h10y.github.io/faithful/>.
+See deployed Shiny and Shinylive results at <https://h10y.github.io/faithful/>.
